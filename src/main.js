@@ -1,4 +1,4 @@
-import "./style.css";
+import "./styles/global.css";
 import javascriptLogo from "/javascript.svg";
 import viteLogo from "/vite.svg";
 import { setupSchedule } from "./schedule";
@@ -7,14 +7,18 @@ import { setupProjects } from "./projects";
 
 const ECFS_LOGO_URL = "https://upload.wikimedia.org/wikipedia/commons/f/f3/ECFS_SunLogo.jpg";
 
+const today = new Date();
+
 document.querySelector("#app").innerHTML = `
   <div class="container">
     <div class="title-container">
       <img src="${ECFS_LOGO_URL}" class="logo ecfs" alt="ECFS logo" />
       <h1>ECFS Computer Science Club</h1>
     </div>
-    <div id="schedule"></div>
-    <div id="email-form"></div>
+    <div class="sef-container">
+      <div id="schedule"></div>
+      <div id="email-form"></div>
+    </div>
     <div id="projects"></div>
     <div>
       <p>This website was built with: </p>
@@ -25,6 +29,9 @@ document.querySelector("#app").innerHTML = `
         <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
       </a>
     </div>
+    <footer styles="padding: 25px; text-align: center;">
+      &copy; ${today.getFullYear()} ECFS CS Club. All rights reserved.
+    </footer>
   </div>
 `;
 
