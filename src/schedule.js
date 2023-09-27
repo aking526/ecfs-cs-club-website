@@ -1,13 +1,44 @@
-import fs from "fs";
 import { csvToArray } from "./utils";
 
-export function setupSchedule(element) {
-  const file = fs.readFileSync("../files/schedule.csv").toString();
-  const data = csvToArray(file); 
+/**
+ * 
+ * @param {*} element 
+ */
+export async function setupSchedule(element) {
+  const schedule = csvToArray(await (await fetch("./files/schedule.csv")).text());
 
-  console.log(data);
+  let table = `
+    <table>
+      <caption>Upcoming meetings</caption>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Location</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+  `;
+
+  for (let i = 0; i < schedule.length; i++) {
+    const cur = schedule[i];
+    table += `
+      <tr>
+        <td>${cur["Date"]}</td>
+        <td>${cur["Time"]}</td>
+        <td>${cur["Location"]}</td>
+        <td>${cur["Message"]}</td>
+      </tr>
+    `; 
+  }
+  
+  table += `
+      </tbody>
+    </table>
+  `
 
   element.innerHTML = `
-    <h2>Schedule</h2>
+    ${table}
   `;
 }

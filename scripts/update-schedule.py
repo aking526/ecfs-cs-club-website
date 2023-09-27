@@ -10,11 +10,11 @@ import sys
 
 csv_path = "../files/schedule.csv"  
 
-class term:
+class Term:
   def __init__(self):
     self = self 
 
-  class colors:
+  class Colors:
     BLACK  = "\33[30m"
     RED    = "\33[31m"
     GREEN  = "\33[32m"
@@ -26,9 +26,9 @@ class term:
     ENDC   = "\33[0m"
 
   def printc(self, str):
-    print(f"{str}{self.colors.ENDC}")
+    print(f"{str}{self.Colors.ENDC}")
 
-tm = term() 
+tm = Term() 
 args = sys.argv[1:]
 
 didx = -1 
@@ -41,7 +41,7 @@ for i in range(len(args)):
     ok = False
     tm.printc(f"{tm.colors.RED}Unknown flag") 
     
-date, time, loc, message = None, None, None, None
+date, time, loc, message = None
 if not (didx == -1): 
   args.pop(didx)
   date = args[0]

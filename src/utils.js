@@ -5,7 +5,7 @@ export function csvToArray(str, delimiter = ",") {
 
   const arr = rows.map((row) => {
     const values = row.split(delimiter);
-    const el = headers.reduce(function (object, header, index) {
+    const el = headers.reduce((object, header, index) => {
       object[header] = values[index];
       return object;
     }, {});

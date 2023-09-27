@@ -1,14 +1,30 @@
-export function setupProjects(element) {
+/**
+ * 
+ * @param {Element} element 
+ * @param {string} name 
+ * @param {string[]} description 
+ */
+export function setupProjectComponent(element, name, description) {
+  element.innerHTML = `
+    ${name}
+    ${description}
+  `;
+}
+
+
+/**
+ * 
+ * @param {*} element 
+ */
+export function setupCurrentProjects(element) {
   element.innerHTML = `
     <div>
-      <h3>What we are currently working on:</h3>
+      <h3>Current projects:</h3>
       <div>
-        <h5>NYC Energy Maps</h5>
+        <div id="math-forum-container"></div>
       </div>
     </div>
-    <div>
-      <h3>Past projects:</h3>
-    </div>
   `;
-} 
 
+  setupProjectComponent(document.querySelector("#math-forum-container"), "ECFS Math Forum", "Forum for math questions. Supplemental to the math center");
+} 

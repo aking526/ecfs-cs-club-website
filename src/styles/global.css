@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  background-color: #ffffff;
+  color: black;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,14 +32,14 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 2.5em;
+  line-height: 1;
 }
 
 #app {
+  height: 100vh;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -47,7 +47,10 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
+
+  width: fit-content;
+  height: fit-content;
 }
 
 .title-container {
@@ -55,59 +58,114 @@ h1 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  height: fit-content;
 }
 
-.sef-container {
+.scp-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 5vh;
+}
+
+#schedule, #cur-projects {
+  border: 2px solid black;
+  border-radius: 7.5px;
+  width: 40vw;
+  height: 40vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.logo.ecfs {
-  border-radius: 5px;
+#schedule {
+  margin-right: 5vw;
 }
 
-.logo.ecfs:hover {
-  filter: drop-shadow(0 0 2em #f77b07);
+#cur-projects {
+  margin-left: 5vw;
 }
 
 /* styles for the email form */
-#email-form h4 {
-  margin-bottom: 0.5rem;
-}
-
-#email-form input {
-  padding: 0.5rem;
-  border: 2px solid gray;
-  border-radius: 5px;
-  margin: 1.5px;
-}
-
-#email-form input:hover {
-  filter: drop-shadow(0 0 0.5em #f7e5d5);
-}
-
-#email-form .container {
+#email-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 7.5px;
+  height: fit-content;
+  width: 15vw;
+  padding: 1vmax;
 }
 
-/*
-#email-form button {
-  background-color: blue;
-  font-size: 14px;
-  padding: 0.5vmin;
-  margin: 1.5px;
+#email-form .join-btn, .remove-btn {
+  border: inherit;
   border-radius: 5px;
-  border: 1px solid transparent;
+  margin: 0.25rem;
+  padding: 5px;
+  width: 5vw; 
+  height: 4vh;
 }
 
-#email-form button:hover {
-  filter: drop-shadow(0 0 0.5em #87CEEB);
+#email-form .join-btn:hover, .remove-btn:hover {
+  cursor: pointer;
 }
-*/
+
+#email-form .join-btn {
+  background-color: green;
+}
+
+#email-form .join-btn:hover {
+  filter: drop-shadow(0 0 0.1em green);
+}
+
+#email-form .remove-btn {
+  background-color: red;
+}
+
+#email-form .remove-btn:hover {
+  filter: drop-shadow(0 0 0.1em red);
+}
+
+#email-form h2 {
+  font-size: bold;
+  /* font-style: italic; */
+  line-height: 1;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+/* styles for the schedule */
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
+
+thead {
+  background-color: #333;
+  color: white;
+  font-size: 0.875rem;
+	text-transform: uppercase;
+	letter-spacing: 2%;
+}
+
+th, td {
+  padding: 8px;
+}
+
+caption {
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  color: #333;
+}
 
 .logo {
   height: 2.0em;
@@ -124,21 +182,4 @@ h1 {
 
 .card {
   padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
